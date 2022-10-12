@@ -10,6 +10,10 @@ class BrandController{
     function __construct(){
         $this->model = new BrandModel();
         $this->view = new BrandView();
+
+        // if (session_start()!=2){
+        //     session_start();
+        // }
     }
     
     function showAll(){

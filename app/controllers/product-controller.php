@@ -17,7 +17,7 @@ class ProductController {
         $this->view = new ProductView();
         $this->modelBrands = new BrandModel();
         
-        // if(!session_status()){
+        // if (session_start()!=2){
         //     session_start();
         // }
             

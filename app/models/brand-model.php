@@ -29,8 +29,8 @@ class BrandModel {
     function getBrand($id){
         $query = $this->db->prepare('SELECT * FROM brands WHERE id = ?');
         $query->execute([$id]);
-        $brand = $query->fetchAll(PDO::FETCH_OBJ);
-        return $brand[0];
+        $brand = $query->fetch(PDO::FETCH_OBJ);
+        return $brand;
     }
 
     function insert($name, $industry, $category) {

@@ -30,7 +30,7 @@ class ProductModel {
     function getProduct($id){
         $query = $this->db->prepare('SELECT * FROM products WHERE id = ?');
         $query->execute([$id]);
-        $product = $query->fetchAll(PDO::FETCH_OBJ);
+        $product = $query->fetch(PDO::FETCH_OBJ);
         return $product;
     }
 
@@ -81,9 +81,9 @@ class ProductModel {
         $query->execute([$id]);
 
         // 3. obtengo los resultados
-        $product = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de productos
+        $product = $query->fetch(PDO::FETCH_OBJ); 
         
-        return $product[0];
+        return $product;
     }
     
 }
