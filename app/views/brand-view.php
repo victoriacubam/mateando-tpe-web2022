@@ -30,5 +30,4 @@ class BrandView {
         $this->smarty->assign("brand", $brand);
         $this->smarty->display('edit-brand.tpl');
     }
-
 }

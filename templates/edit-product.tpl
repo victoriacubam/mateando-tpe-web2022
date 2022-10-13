@@ -37,18 +37,10 @@
                 <input type="number" name="price" class="form-control" value="{$product->price}" >
             </div>
         </div>
-        <div class="col-9">
-            <div class="form-group">
-                <label>Subir imagen ilustrativa</label>
-                <input type="file" name="img" class="form-control" rows="3" required></input>
-            </div>
-        </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
             <button type="submit" class="btn btn-primary mt-2">Editar producto</button>
         </div>
     </form>
 </div>
-
-
 
 {include file="templates/footer.tpl"}

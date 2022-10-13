@@ -21,14 +21,11 @@ class AuthController {
         
         if ((isset($_POST['email'])&&!empty($_POST['email']))&&(isset($_POST['password'])&&!empty($_POST['password']))){
             
-            // Guardo los datos del form
             $email = $_POST['email'];
             $password = $_POST['password'];
 
-            // Busco el usuario por email
             $user = $this->model->getUserByEmail($email);
 
-            // Verifico que el usuario existe y que las contraseñas son iguales
             if ($user && password_verify($password, $user->password)) {
 
                 // inicio una session para este usuario
@@ -38,6 +35,7 @@ class AuthController {
                 $_SESSION['IS_LOGGED'] = true;
 
                 header("Location: " . BASE_URL);
+                
             } else {
                 // si los datos son incorrectos le mando al login el parametro de error
                 $this->view->showLogin("El usuario o la contraseña son incorrectos.");

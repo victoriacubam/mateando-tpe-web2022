@@ -60,13 +60,9 @@ class ProductModel {
         $query->execute([$id]);
     }
 
-    function editById($name, $id_brand, $description, $price, $id, $img = null){
-        $pathImg = null;
-        if ($img){
-            $pathImg = $this->uploadImg($img);
-        }
-        $query = $this->db->prepare('UPDATE `products` SET name = ? , id_brand = ? , description = ?, price = ?,  img = ? WHERE id = ?');
-        $query->execute([$name, $id_brand, $description, $price, $pathImg, $id]);
+    function editById($name, $id_brand, $description, $price, $id){
+        $query = $this->db->prepare('UPDATE `products` SET name = ? , id_brand = ? , description = ?, price = ? WHERE id = ?');
+        $query->execute([$name, $id_brand, $description, $price, $id]);
     }
 
     function getByBrand($id_brand) {

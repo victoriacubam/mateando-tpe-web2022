@@ -1,6 +1,5 @@
 {include file="templates/header.tpl"}
 
-
 {if count($products)==0}
     <div class="container text-center">
         <h2 class="display-5 mt-5">No hay stock de productos para la marca seleccionada</h2>
@@ -44,6 +43,5 @@
         </tbody>
     </table>
 {/if}
-
 
 {include file="templates/footer.tpl"}

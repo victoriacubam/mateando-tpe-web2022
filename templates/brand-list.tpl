@@ -1,4 +1,5 @@
 {include file="templates/header.tpl"}
+
 <h1  class="display-2 container text-center mt-3">Las marcas con las que trabajamos</h1>
 <table class='table mt-5'>
     <thead>
@@ -28,6 +29,5 @@
         {/foreach}
    </tbody>
 </table>
-
 
 {include file="templates/footer.tpl"}

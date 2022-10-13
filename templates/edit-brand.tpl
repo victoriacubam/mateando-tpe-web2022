@@ -27,5 +27,6 @@
             <button type="submit" class="btn btn-primary mt-2">Editar marca</button>
         </div>
     </form>  
-</div>      
+</div>     
+ 
 {include file="templates/footer.tpl"}
