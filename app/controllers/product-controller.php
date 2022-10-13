@@ -10,25 +10,23 @@ class ProductController {
     private $model;
     private $view;
     private $modelBrands; //Esto esta mal?
-   // private $authHelper;
 
     function __construct(){
         $this->model = new ProductModel();
         $this->view = new ProductView();
         $this->modelBrands = new BrandModel();
         
-        // if (session_start()!=2){ //2 significa iniciada (podria ponerlo adentro de una variable)
-        //     session_start();
-        // }
+        if (session_status() != PHP_SESSION_ACTIVE) {
+            session_start();
+        }  
             
         // barrera de seguridad
-        //$this->$authHelper = new AuthHelper();
-        
+        //$this->$authHelper = new AuthHelper(); 
     }
 
+    // Funciones publicas -->
+
     function showAll(){
-        session_start();
-       
         $products = $this->model->getAll();
 
         $brands = $this->modelBrands->getAll();
@@ -37,8 +35,6 @@ class ProductController {
     }
 
     function showByBrand($id_brand){
-        session_start();
-
         $products = $this->model->getByBrand($id_brand);
         $brands = $this->modelBrands->getAll();
 
@@ -46,13 +42,13 @@ class ProductController {
     }
 
     function showMore($id){
-        session_start();
-
         $product = $this->model->getMore($id);
         $brand = $this->modelBrands->getBrand($product->id_brand);
 
         $this->view->showMore($product,$brand);
     }
+
+    //Funciones del administrador -->
 
     function add() {
         $authHelper = new AuthHelper();

@@ -11,17 +11,20 @@ class BrandController{
         $this->model = new BrandModel();
         $this->view = new BrandView();
 
-        // if (session_start()!=2){
-        //     session_start();
-        // }
+        if (session_status() != PHP_SESSION_ACTIVE) {
+            session_start();
+        }  
     }
     
+    // Funciones publicas -->
+
     function showAll(){
-        session_start();
         $brands = $this->model->getAll();
 
         $this->view->showAll($brands);
     }
+
+    // Funciones del administrador -->
 
     function add() {
         $authHelper = new AuthHelper();
