@@ -59,14 +59,15 @@ class ProductController {
         $authHelper->checkLoggedIn();
         
         if((!empty($_POST['name'])&&!empty($_POST['id-brand'])&&!empty($_POST['description'])&&!empty($_POST['price']))
-            &&(isset($_POST['name'])&&isset($_POST['id-brand'])&&isset($_POST['description'])&&isset($_POST['price']))){
+            &&(isset($_POST['name'])&&isset($_POST['id-brand'])&&isset($_POST['description'])&&isset($_POST['price']))&&
+            ($_FILES['img']['type'] == "image/jpg" || $_FILES['img']['type'] == "image/jpeg" || $_FILES['img']['type'] == "image/png")){
             
             $name = $_POST['name'];
             $id_brand = $_POST['id-brand'];
             $description = $_POST['description'];
             $price = $_POST['price'];
             
-            $id = $this->model->insert($name,$id_brand,$description,$price);
+            $id = $this->model->insert($name,$id_brand,$description,$price, $_FILES['img']['tmp_name']);
             $this->view->success(true);
             
         } else {
@@ -103,15 +104,15 @@ class ProductController {
         $authHelper->checkLoggedIn();
 
         if((isset($_POST['name']) && isset($_POST['id-brand']) && isset($_POST['description']) && isset($_POST['price']))
-            && (!empty($_POST['name']) && !empty($_POST['id-brand']) && !empty($_POST['description']) && !empty($_POST['price']))){
+            && (!empty($_POST['name']) && !empty($_POST['id-brand']) && !empty($_POST['description']) && !empty($_POST['price']))&&
+            ($_FILES['img']['type'] == "image/jpg" || $_FILES['img']['type'] == "image/jpeg" || $_FILES['img']['type'] == "image/png")){
             
             $name = $_POST['name'];
             $id_brand = $_POST['id-brand'];
             $description = $_POST['description'];
             $price = $_POST['price'];
             
-            $this->model->editById($name, $id_brand, $description, $price, $id);
-            
+            $this->model->editById($name, $id_brand, $description, $price, $id, $_FILES['img']['tmp_name']);
             $this->view->success(true);
             
         } else {

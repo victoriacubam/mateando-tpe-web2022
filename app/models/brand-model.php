@@ -37,7 +37,7 @@ class BrandModel {
         $query = $this->db->prepare("INSERT INTO brands (name, industry, category) VALUES (?, ?, ?)");
         $query->execute([$name, $industry, $category]);
 
-        //return $db->lastInsertId();
+        return $db->lastInsertId();
     }
  
     function deleteById($id) {

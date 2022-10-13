@@ -36,11 +36,21 @@ class ProductModel {
 
     
     //Inserta un en la producto en la base de datos.
-    function insert($name, $id_brand, $description, $price) {
-        $query = $this->db->prepare("INSERT INTO products (name, id_brand, description, price) VALUES (?, ?, ?, ?)");
-        $query->execute([$name, $id_brand, $description, $price]);
+    function insert($name, $id_brand, $description, $price, $img = null) {
+        $pathImg = null;
+        if ($img){
+            $pathImg = $this->uploadImg($img);
+        }
+        $query = $this->db->prepare("INSERT INTO products (name, id_brand, description, price, img) VALUES (?, ?, ?, ?, ?)");
+        $query->execute([$name, $id_brand, $description, $price, $pathImg]);
 
         return $this->db->lastInsertId();
+    }
+
+    private function uploadImg($img){
+        $target = 'img/' . uniqid() . '.jpg';
+        move_uploaded_file($img, $target);
+        return $target;
     }
 
     //Elimina un producto dado su id.
@@ -50,20 +60,14 @@ class ProductModel {
         $query->execute([$id]);
     }
 
-    function editById($name, $id_brand, $description, $price, $id){
-        $query = $this->db->prepare('UPDATE `products` SET name = ? , id_brand = ? , description = ?, price = ? WHERE id = ?');
-        $query->execute([$name, $id_brand, $description, $price, $id]);
+    function editById($name, $id_brand, $description, $price, $id, $img = null){
+        $pathImg = null;
+        if ($img){
+            $pathImg = $this->uploadImg($img);
+        }
+        $query = $this->db->prepare('UPDATE `products` SET name = ? , id_brand = ? , description = ?, price = ?,  img = ? WHERE id = ?');
+        $query->execute([$name, $id_brand, $description, $price, $pathImg, $id]);
     }
-
-    // function get($id_brand) {
-    //     // 2. ejecuto la sentencia (2 subpasos)
-    //     $query = $this->db->prepare("SELECT a.*, b.* FROM products a INNER JOIN brands b ON a.id_brand = b.id WHERE id_brand = ?");
-    //     $query->execute([$id_brand]);
-    //     // 3. obtengo los resultados
-    //     $products = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de productos
-        
-    //     return $products;
-    // }
 
     function getByBrand($id_brand) {
         // 2. ejecuto la sentencia (2 subpasos)
