@@ -15,10 +15,9 @@
                     <label>Marca</label>
                     <select name="id-brand" class="form-select">
                         <option disabled>Seleccionar</option>
+
                         {foreach $brands as $brand}
-                            <option {if $brand->id == $product->id_brand}
-                                selected
-                            {/if} value="{$product->id_brand}">{$brand->name}</option>
+                            <option {if $brand->id == $product->id_brand} selected {/if} value="{$brand->id}">{$brand->name}</option>
                         {/foreach}
                     </select>
                 </div>
