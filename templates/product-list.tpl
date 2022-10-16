@@ -14,32 +14,32 @@
                 <th scope='col'>Producto</th>
                 <th scope='col'>Marca</th>
                 <th scope='col'>Precio</th>
-                <th scope='col'></th>
-                <th scope='col'></th>
+                {if isset($smarty.session.USER_ID)}
+                    <th scope='col'></th>
+                    <th scope='col'></th>
+                {/if}
             </tr>
         </thead>
         <tbody>
             {foreach $products as $product}
-                    <tr>
-                        <td><a class="btn btn-success" href="product/{$product->id}">Ver mas<a></td>
-                        <td>{$product->name}</td> 
-                        <td>
-                            {foreach $brands as $brand}
-                                {if $product->id_brand == $brand->id}
-                                    {$brand->name}
-                                {/if}
-                            {/foreach}
-                        </td>
-                        <td><span>$</span>{$product->price}</td>
-                        {if isset($smarty.session.USER_ID)}
-                            <td><a class="btn btn-danger" href="deleteProduct/{$product->id}">Borrar<a></td>
-                            <td><a class="btn btn-info" href="editProductForm/{$product->id}">Editar<a></td>                           
-                        {/if}
-                    </tr>
+                <tr>
+                    <td><a class="btn btn-success" href="product/{$product->id}">Ver mas<a></td>
+                    <td>{$product->name}</td> 
+                    <td>
+                        {foreach $brands as $brand}
+                            {if $product->id_brand == $brand->id}
+                                {$brand->name}
+                            {/if}
+                        {/foreach}
+                    </td>
+                    <td><span>$</span>{$product->price}</td>
+                    {if isset($smarty.session.USER_ID)}
+                        <td><a class="btn btn-danger" href="deleteproduct/{$product->id}">Borrar<a></td>
+                        <td><a class="btn btn-info" href="editproductform/{$product->id}">Editar<a></td>                           
+                    {/if}
+                </tr>
             {/foreach}
 
-            
-            
         </tbody>
     </table>
 {/if}

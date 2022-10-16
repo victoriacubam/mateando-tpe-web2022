@@ -31,6 +31,7 @@ class ProductModel {
         $query = $this->db->prepare('SELECT * FROM products WHERE id = ?');
         $query->execute([$id]);
         $product = $query->fetch(PDO::FETCH_OBJ);
+        
         return $product;
     }
 

@@ -13,7 +13,7 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 //Instancio el controller
-$productController = new ProductController(); //Los instancio en la tabla de ruteo?? !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+$productController = new ProductController(); //Los instancio en la tabla de ruteo?? 
 $brandController = new BrandController();
 $authController = new AuthController();
 
@@ -35,44 +35,44 @@ switch ($params[0]) {
         $id = $params[1];
         $productController->showMore($id);
         break;
-    case 'addProduct':
+    case 'addproduct': // addproduct // add/product 
         $productController->add();
         break;
-    case 'deleteProduct':
+    case 'deleteproduct':
         $id = $params[1];
         $productController->delete($id);
         break;
-    case 'editProductForm':
+    case 'editproductform':
         $id = $params[1];
         $productController->editView($id);
         break;
-    case 'editProduct':
+    case 'editproduct':
         $id = $params[1];
         $productController->edit($id);
         break;
-    case 'productsByBrand':
+    case 'productsbybrand':
         $id_brand = $params[1];
         $productController->showByBrand($id_brand);
         break;
     case 'brands':
         $brandController->showAll();
         break;
-    case 'addBrand':
+    case 'addbrand':
         $brandController->add();
         break;
-    case 'deleteBrand':
+    case 'deletebrand':
         $id = $params[1];
         $brandController->delete($id);
         break;
-    case 'editBrandForm':
+    case 'editbrandform':
         $id = $params[1];
         $brandController->editView($id);
         break;
-    case 'editBrand':
+    case 'editbrand':
         $id = $params[1];
         $brandController->edit($id);
         break;
-    case 'inventoryForm':
+    case 'inventoryform':
         $brandController->addInventory();
         break;
     default:

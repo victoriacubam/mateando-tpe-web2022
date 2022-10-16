@@ -9,7 +9,8 @@ class ProductController {
 
     private $model;
     private $view;
-    private $modelBrands; //Esto esta mal?
+    private $modelBrands;
+    // private $authHelper;
 
     function __construct(){
         $this->model = new ProductModel();
@@ -21,7 +22,7 @@ class ProductController {
         }  
             
         // barrera de seguridad
-        //$this->$authHelper = new AuthHelper(); 
+        // $this->$authHelper = new AuthHelper(); 
     }
 
     // Funciones publicas -->

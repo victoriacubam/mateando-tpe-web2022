@@ -5,11 +5,11 @@
 {* form alta de productos *}
 <div class="row">
 
-  <div class="col-sm-6 mt-5">
+  <div class="col-sm-6 mt-5 mb-5">
     <h1 class="display-5 text-center">Productos</h1>
     <div class="card">
-      <div class="card-body "> 
-        <form action="addProduct" method="POST" class="my-4" enctype="multipart/form-data">
+      <div class="card-body" id="inventory-product"> 
+        <form action="addproduct" method="POST" class="my-4" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-9">
                     <div class="form-group">
@@ -58,8 +58,8 @@
   <div class="col-sm-6 mt-5">
     <h1 class="display-5 text-center">Marcas</h1>
     <div class="card">
-      <div class="card-body">
-        <form action="addBrand" method="POST" class="my-4">
+      <div class="card-body" id="inventory-brand">
+        <form action="addbrand" method="POST" class="my-4">
             <div class="form-group">
                 <label>Marca</label>
                 <input name="name" type="text" class="form-control" >

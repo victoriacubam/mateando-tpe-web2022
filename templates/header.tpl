@@ -30,7 +30,7 @@
               </li>
               {if isset($smarty.session.USER_ID)}
                 <li class="nav-item">
-                  <a class="nav-link" href="inventoryForm">Añadir inventario</a>
+                  <a class="nav-link" href="inventoryform">Añadir inventario</a>
                 </li>
               {/if}
             </ul>
@@ -39,7 +39,7 @@
                 <a class="btn btn-secondary" href="login">Ingresar</a>
               {else}
                 <a class="btn btn-secondary" href="logout">Cerrar sesion ({$smarty.session.USER_EMAIL})</a>
-            {/if}
+              {/if}
             </div>
           </div>
         </div>

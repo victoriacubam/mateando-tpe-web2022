@@ -2,7 +2,7 @@
 
 <h1 class="display-5 mt-5 text-center">Editar marca</h1>
 <div class="row justify-content-md-center">
-    <form action="editBrand/{$brand->id}" method="POST" class="my-4">
+    <form action="editbrand/{$brand->id}" method="POST" class="my-4">
         <div class="row justify-content-md-center">
             <div class="col-9">
                 <div class="form-group">

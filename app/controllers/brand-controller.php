@@ -1,6 +1,7 @@
 <?php
 require_once 'app/models/brand-model.php';
 require_once 'app/views/brand-view.php';
+require_once 'app/helpers/auth-helper.php';
 
 class BrandController{
 
@@ -26,7 +27,7 @@ class BrandController{
 
     // Funciones del administrador -->
 
-    function add() {
+    function add(){
         $authHelper = new AuthHelper();
         $authHelper->checkLoggedIn();
         if((isset($_POST['name'])&&isset($_POST['industry'])&&isset($_POST['category']))

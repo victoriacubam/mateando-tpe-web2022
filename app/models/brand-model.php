@@ -30,6 +30,7 @@ class BrandModel {
         $query = $this->db->prepare('SELECT * FROM brands WHERE id = ?');
         $query->execute([$id]);
         $brand = $query->fetch(PDO::FETCH_OBJ);
+        
         return $brand;
     }
 
@@ -37,7 +38,7 @@ class BrandModel {
         $query = $this->db->prepare("INSERT INTO brands (name, industry, category) VALUES (?, ?, ?)");
         $query->execute([$name, $industry, $category]);
 
-        return $db->lastInsertId();
+        return $this->db->lastInsertId();
     }
  
     function deleteById($id) {

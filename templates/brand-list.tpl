@@ -7,9 +7,11 @@
             <th scope='col'>Marca</th>
             <th scope='col'>Industria</th>
             <th scope='col'>Categoria</th>
-            <th scope='col'></th>
-            <th scope='col'></th>
-            <th scope='col'></th>
+            <th scope='col'>Productos</th>
+            {if isset($smarty.session.USER_ID)}
+                <th scope='col'></th>
+                <th scope='col'></th>
+            {/if}
         </tr>
     </thead>
     <tbody>
@@ -19,11 +21,11 @@
                 <td>{$brand->industry}</td>
                 <td>{$brand->category}</td>
                 <td>
-                    <a href="productsByBrand/{$brand->id}" class="btn btn-secondary btn-sm">Ver productos</a>
+                    <a href="productsbybrand/{$brand->id}" class="btn btn-secondary btn-sm">Ver productos</a>
                 </td>
                 {if isset($smarty.session.USER_ID)}
-                    <td><a class="btn btn-danger" href="deleteBrand/{$brand->id}">Borrar<a></td>
-                    <td><a class="btn btn-info"  href="editBrandForm/{$brand->id}">Editar<a></td>   
+                    <td><a class="btn btn-danger" href="deletebrand/{$brand->id}">Borrar<a></td>
+                    <td><a class="btn btn-info"  href="editbrandform/{$brand->id}">Editar<a></td>   
                 {/if}    
             </tr>
         {/foreach}

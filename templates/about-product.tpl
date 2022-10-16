@@ -7,14 +7,13 @@
         {/if}
         <hr>
         <div class="card-body">
-            <h5 class="card-title display-6">{$product->name}</h5>
-            
+            <h5 class="card-title display-6">{$product->name}</h5> 
             <h6 class="card-subtitle mb-2 text-muted">{$brand->name}</h6>
             <p class="card-text">{$product->description}</p>
             <p class="card-text lead"><span>Precio $</span>{$product->price}</p>
             {if isset($smarty.session.USER_ID)}
-                <a class="btn btn-danger mt-2" href="deleteProduct/{$product->id}">Borrar<a>
-                <a class="btn btn-info mt-2" href="editProductForm/{$product->id}">Editar<a>                          
+                <a class="btn btn-danger mt-2" href="deleteproduct/{$product->id}">Borrar<a>
+                <a class="btn btn-info mt-2" href="editproductform/{$product->id}">Editar<a>                          
             {/if}
             <a class="btn btn-primary mt-2" href="{BASE_URL}">Volver</a>
         </div>
