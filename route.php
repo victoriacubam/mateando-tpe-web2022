@@ -13,7 +13,7 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 //Instancio el controller
-$productController = new ProductController(); //Los instancio en la tabla de ruteo?? 
+$productController = new ProductController();
 $brandController = new BrandController();
 $authController = new AuthController();
 
@@ -35,8 +35,11 @@ switch ($params[0]) {
         $id = $params[1];
         $productController->showMore($id);
         break;
-    case 'addproduct': // addproduct // add/product 
+    case 'addproduct':
         $productController->add();
+        break;
+    case 'inventoryform':
+        $productController->addInventory();
         break;
     case 'deleteproduct':
         $id = $params[1];
@@ -71,9 +74,6 @@ switch ($params[0]) {
     case 'editbrand':
         $id = $params[1];
         $brandController->edit($id);
-        break;
-    case 'inventoryform':
-        $brandController->addInventory();
         break;
     default:
         echo('404 Page not found');

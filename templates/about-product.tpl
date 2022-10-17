@@ -3,9 +3,9 @@
 <div class="row justify-content-md-center container text-center mt-5 mb-5" >
     <div class="card" id="cardProduct">
         {if isset($product->img)}
-            <div><img src="{$product->img}"> </div>
+            <div><img src="{$product->img}"></div>
+            <hr>
         {/if}
-        <hr>
         <div class="card-body">
             <h5 class="card-title display-6">{$product->name}</h5> 
             <h6 class="card-subtitle mb-2 text-muted">{$brand->name}</h6>

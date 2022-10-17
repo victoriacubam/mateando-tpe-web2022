@@ -58,14 +58,6 @@ class BrandController{
         }
     }
 
-    function addInventory(){
-        $authHelper = new AuthHelper();
-        $authHelper->checkLoggedIn();
-
-        $brands = $this->model->getAll();
-        $this->view->addInventory($brands);
-    }
-
     function editView($id){
         $authHelper = new AuthHelper();
         $authHelper->checkLoggedIn();

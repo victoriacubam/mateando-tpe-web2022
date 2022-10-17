@@ -14,18 +14,22 @@ class ProductView {
         $this->smarty->display('product-list.tpl');
     }
 
-    function show($products){
-        $this->smarty->assign("products", $products);
-        
-        $this->smarty->display('product-list.tpl');
-    }
-
     function showMore($product,$brand){
         $this->smarty->assign("product", $product);
         $this->smarty->assign("brand", $brand);
         $this->smarty->display('about-product.tpl');
     }
 
+    function editProduct($product,$brands){
+        $this->smarty->assign("product", $product);
+        $this->smarty->assign("brands", $brands);
+        $this->smarty->display('edit-product.tpl');
+    }
+
+    function addInventory($brands){
+        $this->smarty->assign("brands", $brands);
+        $this->smarty->display('inventory-form.tpl');
+    }
 
     function success($success, $msg = null){
         $this->smarty->assign("success", $success);
@@ -33,11 +37,5 @@ class ProductView {
             $this->smarty->assign("msg", $msg);
         }
         $this->smarty->display('success.tpl');
-    }
-
-    function editProduct($product,$brands){
-        $this->smarty->assign("product", $product);
-        $this->smarty->assign("brands", $brands);
-        $this->smarty->display('edit-product.tpl');
     }
 }

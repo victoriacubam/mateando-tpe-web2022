@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-10-2022 a las 16:26:13
+-- Tiempo de generación: 17-10-2022 a las 19:29:25
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -44,8 +44,7 @@ INSERT INTO `brands` (`id`, `name`, `industry`, `category`) VALUES
 (3, 'Sara', 'Uruguaya', 'Yerbas'),
 (4, 'Stanley', 'EEUU', 'Accesorios'),
 (5, 'un mate', 'Argentina', 'Accesorios'),
-(34, 'Marca de prueba 2', 'Argentina', 'Prueba'),
-(35, 'Marca de prueba 1', 'Argentina', 'Prueba');
+(40, 'Playadito', 'Argentina', 'Yerbas');
 
 -- --------------------------------------------------------
 
@@ -59,7 +58,7 @@ CREATE TABLE `products` (
   `id_brand` int(11) NOT NULL,
   `description` varchar(200) NOT NULL,
   `price` double NOT NULL,
-  `img` varchar(50) NOT NULL
+  `img` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -67,7 +66,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `id_brand`, `description`, `price`, `img`) VALUES
-(2, 'Yerba Rei Verde Tradicional', 1, 'Rendimiento: Alta duración de sabor durante su consumo.Sabor: Por su composición asegura un sabor amargo e intenso.', 700, 'img/63476a99a57ef.jpg'),
+(2, 'Yerba Rei Verde Tradicional', 1, 'Rendimiento: Alta duración de sabor durante su consumo.Sabor: Por su composición asegura un sabor amargo e intenso.', 710, 'img/63476a99a57ef.jpg'),
 (3, 'Yerba Rei Verde Premium', 1, 'Sabor: Esta marca ofrece al paladar del consumidor un moderado sabor amargo.', 900, 'img/63476aa0203af.jpg'),
 (4, 'Yerba Rei Verde Compuesta', 1, 'Composición: Cedrón, Anís, Manzanilla, Hinojo y Carqueja.  Sabor: Su composición ofrece un sabor predominante a yerba mate con un leve gusto a hierbas', 850, 'img/63476aa6a7222.jpg'),
 (5, 'Yerba Rei Verde Classica', 1, 'Sabor: Moderadamente intenso, fino aroma, levemente ahumado y parejo, que perdura durante el tiempo de la infusión.', 780, 'img/63476aae97e88.jpg'),
@@ -77,10 +76,10 @@ INSERT INTO `products` (`id`, `name`, `id_brand`, `description`, `price`, `img`)
 (9, 'Yerba Sara Tradicional 1KG', 3, 'Alta durabilidad en espuma y consistente en sabor.', 780, 'img/63476ad0b2675.jpg'),
 (10, 'Yerba Sara Compuesta 1KG', 3, 'Está compuesta por Yerba Sara, Melisa, Manzanilla y Jengibre. Esta sumatoria de yuyos, es una combinación perfecta que ayuda a prevenir y reparar inconvenientes digestivos.', 810, 'img/63476ad8b9420.jpg'),
 (11, 'Yerba Sara Extra Suave 1KG', 3, 'La Yerba con el mejor perfil de sabor, que también tiene durabilidad en el mate. Bajo porcentaje de mateína.', 850, 'img/63476aec35cdd.jpg'),
-(12, 'Termo Stanley Clasico 1 L verde', 4, 'Diseño elegante, construcción robusta y una actitud indescriptible. Totalmente a prueba de fugas y capaz de mantener las bebidas calientes o frías durante 24 horas o con hielo durante 120 horas', 10300, ''),
-(13, 'Termo Stanley Clasico 1 L verde', 4, 'Diseño elegante, construcción robusta y una actitud indescriptible. Totalmente a prueba de fugas y capaz de mantener las bebidas calientes o frías durante 24 horas o con hielo durante 120 horas', 10300, ''),
-(14, 'Termo Stanley Clasico 1.4 L negro', 4, 'Diseño elegante, construcción robusta y una actitud indescriptible. Totalmente a prueba de fugas y capaz de mantener las bebidas calientes o frías durante 24 horas o con hielo durante 120 horas', 12300, ''),
-(15, 'Termo Stanley Adventure 739 ML blanco', 4, 'Diseño elegante, construcción robusta y una actitud indescriptible. Totalmente a prueba de fugas y capaz de mantener las bebidas calientes o frías durante 24 horas o con hielo durante 120 horas,', 7000, ''),
+(12, 'Termo Stanley Clasico 1 L verde', 4, 'Diseño elegante, construcción robusta y una actitud indescriptible. Totalmente a prueba de fugas y capaz de mantener las bebidas calientes o frías durante 24 horas o con hielo durante 120 horas', 10300, NULL),
+(13, 'Termo Stanley Clasico 1 L verde', 4, 'Diseño elegante, construcción robusta y una actitud indescriptible. Totalmente a prueba de fugas y capaz de mantener las bebidas calientes o frías durante 24 horas o con hielo durante 120 horas', 10300, NULL),
+(14, 'Termo Stanley Clasico 1.4 L negro', 4, 'Diseño elegante, construcción robusta y una actitud indescriptible. Totalmente a prueba de fugas y capaz de mantener las bebidas calientes o frías durante 24 horas o con hielo durante 120 horas', 12300, NULL),
+(15, 'Termo Stanley Adventure 739 ML blanco', 4, 'Diseño elegante, construcción robusta y una actitud indescriptible. Totalmente a prueba de fugas y capaz de mantener las bebidas calientes o frías durante 24 horas o con hielo durante 120 horas,', 7000, NULL),
 (16, 'Mate Stanley negro 236 ML', 4, 'El mate Stanley mantiene la temperatura durante toda la cebada. Es práctico e higiénico. Dimensiones: 11cm de alto x 10cm de diametro. Color: negro', 3000, 'img/63476b340f995.jpg'),
 (17, 'Mate Stanley verde 236 ML', 4, 'El mate Stanley mantiene la temperatura durante toda la cebada. Es práctico e higiénico. Dimensiones: 11cm de alto x 10cm de diametro Color: verde', 3000, 'img/63476b3c40a57.jpg'),
 (18, 'Mate Stanley rojo 236 ML', 4, 'El mate Stanley mantiene la temperatura durante toda la cebada. Es práctico e higiénico. Dimensiones: 11cm de alto x 10cm de diametro Color: rojo', 3000, 'img/63476b44042a2.jpg'),
@@ -88,7 +87,7 @@ INSERT INTO `products` (`id`, `name`, `id_brand`, `description`, `price`, `img`)
 (20, 'Bombilla Spring verde', 4, 'Su diseño fue pensado para garantizar la mejor filtración de la yerba y su boquilla más ancha para garantizar un mejor flujo y comodidad al beber. Largo: 18,9 cm', 2500, 'img/63476b5328a53.jpg'),
 (21, 'Set matero', 5, 'Incluye: Mate de Acero Inoxidable, Bombilla de Acero Inoxidable, Bolso Matero y Yerbera', 18000, 'img/63476b83b096b.jpg'),
 (22, 'Bolso matero Militar', 5, 'Material: Cordura. Dimensiones: 39 cm x 29 cm x 15 cm', 10000, 'img/63476b6bef3f0.jpg'),
-(23, 'Bolso matero Black', 5, 'Material: Cordura. Dimensiones: 39 cm x 29 cm x 15 cm', 10000, 'img/63476b76c6cc9.jpg');
+(23, 'Bolso matero Black', 5, 'Material: Cordura. Dimensiones: 39 cm x 29 cm x 15 cm', 11000, 'img/63476b76c6cc9.jpg');
 
 -- --------------------------------------------------------
 
@@ -141,13 +140,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

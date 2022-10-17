@@ -44,7 +44,7 @@
             </div>
             <div class="form-group">
                 <label>Subir imagen ilustrativa</label>
-                <input type="file" name="img" class="form-control" id=imageToUpload rows="3" required></input>
+                <input type="file" name="img" class="form-control" id=imageToUpload rows="3"></input>
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                 <button type="submit" class="btn btn-primary mt-2">Añadir producto</button>
